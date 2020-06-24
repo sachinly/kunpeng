@@ -114,8 +114,6 @@ func GetLog(sep *C.char) *C.char {
 var Greeter greeting
 
 
-
-
 type Meta struct {
 	System   string   `json:"system"`
 	PathList []string `json:"pathlist"`

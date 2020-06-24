@@ -85,12 +85,12 @@ func main() {
 	}
 	task2 := Task{
 		Type:   "web",
-		Netloc: "http://192.168.7.127:9080",
+		Netloc: "http://192.168.7.127:8808",
 		Target: "struts2",
 		Meta: Meta{
 			System:   "",
 			PathList: []string{},
-			FileList: []string{},
+			FileList: []string{"http://192.168.7.127:8808/memoindex.action","http://192.168.7.127:8808/index.action"},
 			PassList: []string{},
 		},
 	}
