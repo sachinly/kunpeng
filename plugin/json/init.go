@@ -2,9 +2,9 @@ package jsonplugin
 
 import (
 	"encoding/json"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	. "kunpeng/config"
+	"kunpeng/plugin"
+	"kunpeng/util"
 	"io/ioutil"
 	"net/http"
 	"os"

@@ -57,7 +57,8 @@ func main() {
 	kunpeng.ShowLog()
 
 	// 获取插件信息
-	// fmt.Println(kunpeng.GetPlugins())
+	pocs := kunpeng.GetPlugins()
+	fmt.Println(len(pocs))
 
 	// 修改配置
 	c := &config{
@@ -65,27 +66,27 @@ func main() {
 		// Aider:     "",
 		// HTTPProxy: "",
 		// PassList:  []string{"ptest"},
-		// ExtraPluginPath: "/home/test/plugin/",
+		ExtraPluginPath: "/home/sachinly/goproject/src/kunpeng/plugin/",
 	}
 	configJSONBytes, _ := json.Marshal(c)
 	kunpeng.SetConfig(string(configJSONBytes))
 
 	// 扫描目标
 	task := Task{
-		Type:   "service",
-		Netloc: "192.168.0.105:3306",
-		Target: "mysql",
+		Type:   "web",
+		Netloc: "http://192.168.7.127:9080",
+		Target: "struts2",
 		Meta: Meta{
 			System:   "",
 			PathList: []string{},
 			FileList: []string{},
-			PassList: []string{"ttest"},
+			PassList: []string{""},
 		},
 	}
 	task2 := Task{
 		Type:   "web",
-		Netloc: "http://www.google.cn",
-		Target: "web",
+		Netloc: "http://192.168.7.127:9080",
+		Target: "struts2",
 		Meta: Meta{
 			System:   "",
 			PathList: []string{},

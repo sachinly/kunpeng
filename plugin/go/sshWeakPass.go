@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/opensec-cn/kunpeng/plugin"
+	"kunpeng/plugin"
 	"golang.org/x/crypto/ssh"
 )
 

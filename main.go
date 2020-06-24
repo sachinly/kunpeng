@@ -3,12 +3,13 @@ package main
 import "C" // required
 import (
 	"encoding/json"
-	"github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
-	_ "github.com/opensec-cn/kunpeng/plugin/go"
-	_ "github.com/opensec-cn/kunpeng/plugin/json"
-	"github.com/opensec-cn/kunpeng/util"
-	"github.com/opensec-cn/kunpeng/web"
+	"fmt"
+	"kunpeng/config"
+	"kunpeng/plugin"
+	_ "kunpeng/plugin/go"
+	_ "kunpeng/plugin/json"
+	"kunpeng/util"
+	"kunpeng/web"
 )
 
 var VERSION string
@@ -112,4 +113,42 @@ func GetLog(sep *C.char) *C.char {
 
 var Greeter greeting
 
-func main() {}
+
+
+
+type Meta struct {
+	System   string   `json:"system"`
+	PathList []string `json:"pathlist"`
+	FileList []string `json:"filelist"`
+	PassList []string `json:"passlist"`
+}
+
+type Task struct {
+	Type   string `json:"type"`
+	Netloc string `json:"netloc"`
+	Target string `json:"target"`
+	Meta   Meta   `json:"meta"`
+}
+
+//test struts-032 struts-045
+func teststructs()  {
+	task := Task{
+		Type:   "web",
+		Netloc: "http://192.168.7.127:8808",
+		Target: "struts2",
+		Meta: Meta{
+			System:   "",
+			PathList: []string{},
+			FileList: []string{"http://192.168.7.127:8808/memoindex.action"},
+			PassList: []string{},
+		},
+	}
+	Greeter.ShowLog()
+	jsonBytes, _ := json.Marshal(task)
+	result := Greeter.Check(string(jsonBytes))
+	fmt.Println(result)
+}
+
+func main() {
+	teststructs()
+}

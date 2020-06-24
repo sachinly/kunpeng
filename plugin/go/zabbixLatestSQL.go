@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/plugin"
+	"kunpeng/util"
 )
 
 type zabbixLatestSQL struct {

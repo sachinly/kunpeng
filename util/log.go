@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/config"
+	"kunpeng/config"
 )
 
 type logger struct {

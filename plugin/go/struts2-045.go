@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/plugin"
+	"kunpeng/util"
 )
 
 type struts2_45 struct {

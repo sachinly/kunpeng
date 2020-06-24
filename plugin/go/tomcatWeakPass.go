@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/plugin"
+	"kunpeng/util"
 )
 
 type tomcatWeakPass struct {

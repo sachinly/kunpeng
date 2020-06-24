@@ -3,8 +3,8 @@ package plugin
 
 import (
 	"fmt"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/util"
+	. "kunpeng/config"
+	"kunpeng/util"
 	"sort"
 	"strconv"
 	"strings"

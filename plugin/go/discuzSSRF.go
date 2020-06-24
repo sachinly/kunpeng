@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/plugin"
+	"kunpeng/util"
 )
 
 type discuzSSRF struct {

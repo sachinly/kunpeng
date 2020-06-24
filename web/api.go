@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
+	"kunpeng/config"
+	"kunpeng/plugin"
 )
 
 // StartServer 启动web服务接口

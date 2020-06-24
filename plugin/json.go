@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/util"
 )
 
 // JSONPlugin JSON插件

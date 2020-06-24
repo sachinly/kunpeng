@@ -3,12 +3,12 @@ package goplugin
 import (
 	"database/sql"
 	"fmt"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/util"
 	"strings"
 
 	_ "github.com/lib/pq"
-	. "github.com/opensec-cn/kunpeng/config"
-	"github.com/opensec-cn/kunpeng/plugin"
+	. "kunpeng/config"
+	"kunpeng/plugin"
 )
 
 type postgresqlWeakPass struct {

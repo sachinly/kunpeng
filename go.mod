@@ -1,9 +1,8 @@
-module github.com/opensec-cn/kunpeng
+module kunpeng
 
 go 1.12
 
 require (
-	cloud.google.com/go v0.47.0 // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20190204142019-df6d76eb9289
 	github.com/gin-contrib/sse v0.0.0-20190125020943-a7658810eb74
 	github.com/gin-gonic/gin v1.3.0
@@ -17,12 +16,11 @@ require (
 	github.com/mjibson/esc v0.2.0
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
 	github.com/modern-go/reflect2 v1.0.1
+	github.com/opensec-cn/kunpeng v0.0.0-20200515050248-6fa84f6b1c50
 	github.com/pkg/errors v0.0.0-20190217225212-856c240a51a2
 	github.com/stacktitan/smb v0.0.0-20170721050911-ba124664fd6b
 	github.com/ugorji/go v1.1.7
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
 	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
-	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
-	gopkg.in/yaml.v2 v2.2.4 // indirect
 )

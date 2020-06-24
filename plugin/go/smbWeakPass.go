@@ -2,10 +2,10 @@ package goplugin
 
 import (
 	"fmt"
-	"github.com/opensec-cn/kunpeng/util"
+	"kunpeng/util"
 	"strings"
 
-	"github.com/opensec-cn/kunpeng/plugin"
+	"kunpeng/plugin"
 	"github.com/stacktitan/smb/smb"
 )
 
